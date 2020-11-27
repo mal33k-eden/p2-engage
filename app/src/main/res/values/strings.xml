@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">P2-Engage</string>
+    <string name="app_name2">P2-ENGAGE</string>
+    <string name="app_tagline">Engagement | Journal | Intervention</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nickname">Nickname</string>
+    <string name="passcode">Password</string>
+    <string name="login">Get Me In</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_1">Password must contain at least 8 characters.</string>
+    <string name="privacyassurance"><![CDATA[Your conversations are anonymous, so there is no login. All you need is a nickname.]]></string>
+    <string name="privacy_policy">By continuing, you agree to the Terms of Service and Privacy Policy</string>
+    <string name="content_description_person_icon">Account of user</string>
+    <string name="home_mh_contacts"><![CDATA[Mental Health Info & Contacts]]></string>
+    <string name="title_activity_engage">EngageActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+</resources>

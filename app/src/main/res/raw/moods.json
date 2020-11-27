@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Angry",
+    "icon": "emoji_angry"
+  },
+  {
+    "name": "Confused",
+    "icon": "emoji_confused"
+  },
+  {
+    "name": "Good",
+    "icon": "emoji_good"
+  },
+  {
+    "name": "I Don't Know",
+    "icon": "emoji_i_dont_know"
+  },
+  {
+    "name": "Sad",
+    "icon": "emoji_sad"
+  },
+  {
+    "name": "Stressed",
+    "icon": "emoji_stressed"
+  },
+  {
+    "name": "Very Good",
+    "icon": "emoji_very_good"
+  },
+  {
+    "name": "Very Sad",
+    "icon": "emoji_very_sad"
+  }
+]
