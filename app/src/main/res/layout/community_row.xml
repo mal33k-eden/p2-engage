@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp">
+
+
+            <TextView
+                android:id="@+id/community_journal_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sun, Nov 15, 2020 2:29 Am"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+
+
+            <TextView
+                android:id="@+id/community_journal_title"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@+id/community_journal_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I feel Sad Today..."
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/community_journal_body"
+                android:layout_below="@+id/community_journal_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen..... "
+                android:textSize="18sp"/>
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/community_journal_mood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/community_journal_body"
+                app:chipIcon="@drawable/emoji_sad"
+                app:chipIconSize="24dp"
+                android:text="Pokua is Sad"/>
+
+
+            <LinearLayout
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/community_journal_mood"
+                >
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/community_begin_engage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipIcon="@drawable/ic_chat"
+                    app:chipIconSize="24dp"
+                    android:text="Engage Pokua"/>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

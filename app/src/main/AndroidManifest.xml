@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.P2Engage">
-        <activity android:name=".EngageActivity"></activity>
+        <activity android:name=".JournalCreateActivity" android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".CommunityActivity" />
+        <activity android:name=".EngageActivity" />
         <activity android:name=".JournalActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">

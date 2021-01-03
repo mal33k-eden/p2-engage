@@ -1,8 +1,6 @@
 package uk.ac.tees.v8218996.p2_engage.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +33,7 @@ public class JournalMoodDialogListAdaptor extends ArrayAdapter<Mood> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.journal_mood_listview_layout, parent, false);
         ImageView moodIcon = rowView.findViewById(R.id.mood_icon);
-        TextView moodName = rowView.findViewById(R.id.mood_name);
+        TextView moodName = rowView.findViewById(R.id.info_name);
         Mood mood = moodList.get(position);
 
         moodName.setText(mood.getName());

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "567666068422",
+    "project_id": "p2-engage",
+    "storage_bucket": "p2-engage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567666068422:android:990f8da9ee126e09a700c7",
+        "android_client_info": {
+          "package_name": "uk.ac.tees.v8218996.p2_engage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567666068422-f4gojqi2koote4n028ts79o0t4ac9ik2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uk.ac.tees.v8218996.p2_engage",
+            "certificate_hash": "f0315213236b1f7944cdee1e3d3f3a59c55d2540"
+          }
+        },
+        {
+          "client_id": "567666068422-l7ul3abqdpdkbhkvju26p4l8ud3k3b3l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVj4xptLIu_tqCrWHoDdxpjiUlm8zr958"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567666068422-l7ul3abqdpdkbhkvju26p4l8ud3k3b3l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

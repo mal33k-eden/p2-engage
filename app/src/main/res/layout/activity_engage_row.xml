@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--        sender-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        <TextView-->
+<!--            android:id="@+id/engage_date"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:text="12 March 2020">-->
+<!--        </TextView>-->
+        <TextView
+            android:id="@+id/sent_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:padding="10dp"
+            android:background="@drawable/engage_chat_bg"
+            android:text="Drone SDK Sample code."
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/sent_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/sent_from"
+            android:text="From Eden "/>
+        <TextView
+            android:id="@+id/sent_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/sent_from"
+            android:textSize="10sp"
+            android:text="Fri, Dec 18, 2020 07:24 AM"/>
+
+        <!--<ImageView
+            android:id="@+id/avatar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="53dp"
+            android:layout_below="@+id/engage_date"
+            android:background="@drawable/ic_male_avatar_small"/>-->
+
+
+
+
+    </RelativeLayout>
+    <!--        Receiver-->
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/current_user_message"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:textColor="@color/colorText"-->
+<!--            android:layout_height="64dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:padding="10dp"-->
+<!--            android:background="@drawable/engage_chat_bg"-->
+<!--            android:text="Hello there. My name is emmanuel "-->
+<!--            android:layout_marginTop="20dp"/>-->
+<!--    </RelativeLayout>-->
+
+
+</LinearLayout>

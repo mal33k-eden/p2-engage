@@ -30,7 +30,7 @@
                 android:id="@+id/journal_status"
                 android:layout_alignParentEnd="true"
                 android:orientation="horizontal"
-                android:layout_alignBottom="@+id/journal_date"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:chipIconTint="@color/colorPrimary"
@@ -50,7 +50,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/journal_text"
+                android:id="@+id/journal_body"
                 android:layout_below="@+id/journal_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,8 +63,7 @@
                 android:id="@+id/journal_mood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/journal_text"
-                app:chipIconTint="@color/colorPrimary"
+                android:layout_below="@+id/journal_body"
                 app:chipIcon="@drawable/emoji_sad"
                 app:chipIconSize="24dp"
                 android:text="Sad"/>
@@ -78,20 +77,22 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/journal_mood"
                 >
-                <Button
-                    android:id="@+id/editButton"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@android:drawable/ic_menu_edit"
-                    />
+<!--                <Button-->
+<!--                    android:id="@+id/editButton"-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:background="@android:drawable/ic_menu_edit"-->
+<!--                    />-->
 
                 <Button
                     android:id="@+id/deleteButton"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@android:drawable/ic_delete"
+                    android:backgroundTint="@color/colorAccent"
+                    android:background="@drawable/ic_bin"
+                    style="@style/Widget.P2Engage.ButtonIcon"
                     />
 
             </TableRow>

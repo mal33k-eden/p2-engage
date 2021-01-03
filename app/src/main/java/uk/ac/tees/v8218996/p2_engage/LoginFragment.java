@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -16,11 +17,24 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.concurrent.Executor;
+import uk.ac.tees.v8218996.p2_engage.data.DatabaseHandler;
+import uk.ac.tees.v8218996.p2_engage.model.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +49,11 @@ public class LoginFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase firebaseDB = FirebaseDatabase.getInstance();
+    DatabaseReference myDBRef = firebaseDB.getReference();
+
+    private static final String TAG = "AnonymousAuth";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -71,6 +90,7 @@ public class LoginFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -78,18 +98,25 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_login, container, false);
+        mAuth = FirebaseAuth.getInstance();
+
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
 
         MaterialButton loginButton = view.findViewById(R.id.login_button);
+
+        TextInputLayout textInputLayout = view.findViewById(R.id.nicknameText);
+        final Editable userName = textInputLayout.getEditText().getText();
+
 
         loginButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                Log.d("frames", "onClick: gsds");
+                Log.d("nicename", String.valueOf(userName));
 
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), HomeActivity.class);
-                getActivity().startActivity(intent);
+                signInAnonymously(String.valueOf(userName));
             }
         });
 
@@ -140,5 +167,79 @@ public class LoginFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    private void signOut() {
+        mAuth.signOut();
+        updateUI(null);
+    }
+    private void signInAnonymously(final String nickName) {
+
+        // [START signin_anonymously]
+        try {
+            mAuth.signInAnonymously().addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "signInAnonymously:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+
+                                //store user
+                               saveUserInDb(user,nickName);
+                                updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "signInAnonymously:failure", task.getException());
+//                            Toast.makeText(AnonymousAuthActivity.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            }
+
+                        }
+                    });
+            // [END signin_anonymously]
+        }catch (Exception ex){
+            Log.e("trycatcherror", ex.getLocalizedMessage().toString());
+        }
+
+    }
+
+    private void saveUserInDb(FirebaseUser user,String nickName) {
+
+        DatabaseHandler db = new DatabaseHandler(getContext());
+
+        User newUser = new User();
+
+        newUser.setNickName(nickName);
+        newUser.setUid(user.getUid());
+
+        db.addUser(newUser);
+
+        //FIREBASE WRITE
+        myDBRef.child("users").child(user.getUid()).setValue(newUser);
+    }
+
+    private void updateUI(FirebaseUser currentUser ) {
+        boolean isSignedIn = (currentUser != null);
+
+
+        if(isSignedIn){
+            //user is signed in
+            Log.d(TAG,  currentUser.getUid());
+            Intent intent = new Intent();
+            intent.setClass(getActivity(), HomeActivity.class);
+            getActivity().startActivity(intent);
+            getActivity().finish();
+
+        }else{
+            //user is not signed in
+            Log.w(TAG, "signInAnonymously:failure -> not logged in");
+        }
+    }
+    @Override
+    public  void onStart() {
+        super.onStart();
+
     }
 }

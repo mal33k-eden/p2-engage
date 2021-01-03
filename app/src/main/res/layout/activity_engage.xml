@@ -1,133 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EngageActivity"
-    android:orientation="horizontal">
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
+    android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/topAppBar"
+            android:id="@+id/engage_topAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
 
             <com.google.android.material.appbar.MaterialToolbar
                 style="@style/Widget.P2Engage.Toolbar"
+                android:id="@+id/engage_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:navigationIcon="@drawable/ic_back"
                 app:title="Engage"
                 app:titleMargin="8dp"
-                app:titleTextColor="@color/colorText"
-                app:menu="@menu/engage_menu"/>
+                app:titleTextColor="@color/colorText"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-                <!--        sender-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/engage_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:text="12 March 2020">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@color/colorText"
-                android:layout_height="64dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="30dp"
-                android:layout_below="@+id/engage_date"
-                android:padding="10dp"
-                android:layout_toRightOf="@+id/avatar"
-                android:background="@drawable/engage_chat_bg"
-                android:text="Hello there. My name is emmanuel and i just want to say HI."
-                android:layout_marginTop="20dp"/>
-
-            <ImageView
-                android:id="@+id/avatar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="53dp"
-                android:layout_below="@+id/engage_date"
-                android:background="@drawable/ic_male_avatar_small"/>
-
-
-
-
-        </RelativeLayout>
-                <!--        Receiver-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@color/colorText"
-                android:layout_height="64dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_alignParentRight="true"
-                android:padding="10dp"
-                android:background="@drawable/engage_chat_bg"
-                android:text="Hello there. My name is emmanuel "
-                android:layout_marginTop="20dp"/>
-        </RelativeLayout>
-    </LinearLayout>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/engageRecyclerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="542dp"
+        android:layout_above="@+id/footer_relative_layout"
+        android:layout_below="@+id/engage_topAppBar"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="12dp" />
 
     <RelativeLayout
+        android:id="@+id/footer_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/engage_chat_input"
-            android:layout_width="320dp"
+        android:layout_alignParentBottom="true"
+        >
+        <LinearLayout
+            android:id="@+id/footer_linear_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            android:hint="Type a message">
+            android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/engage_chat_layout"
+                android:alpha="0.5"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="Type a message"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/engage_chat_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <ImageButton
+                android:id="@+id/engage_send_message"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/send_icon_bg"
+                android:padding="10dp"
+                android:src="@drawable/ic_send">
+            </ImageButton>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
-        <ImageView
-            android:layout_centerVertical="true"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_send"
-            android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/send_icon_bg"
-            >
-
-
-        </ImageView>
-
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_below="@+id/footer_linear_layout"
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_navigation_menu"
+            android:layout_gravity="bottom"/>
     </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

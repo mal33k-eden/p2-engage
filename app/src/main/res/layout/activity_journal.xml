@@ -7,6 +7,7 @@
     tools:context=".JournalActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -15,15 +16,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-
-
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
 
             <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/journal_topAppBar"
                 style="@style/Widget.P2Engage.Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,15 +34,21 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <RelativeLayout
-            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/mood_journal_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="10dp"
                 android:text="0 Journal"
                 android:textAppearance="?attr/textAppearanceHeadline6"
@@ -54,22 +59,22 @@
                 android:id="@+id/icon_open_journal_sheet"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
+                android:layout_alignEnd="@+id/mood_journal_count"
                 android:background="@drawable/icon_bg"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_create"
-                tools:ignore="VectorDrawableCompat"
-                android:layout_alignEnd="@+id/mood_journal_count"/>
+                app:srcCompat="@drawable/ic_add_circle_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
         </RelativeLayout>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/journalRecyclerContainer"
-        android:layout_width="407dp"
-        android:layout_height="511dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="399dp"
+        android:layout_height="547dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -78,7 +83,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JournalCreateActivity">
+    <LinearLayout
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/journal_topAppBar"
+                style="@style/Widget.P2Engage.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_back"
+                app:title="ADD TO YOUR JOURNAL"
+                app:titleMargin="8dp"
+                app:titleTextColor="@color/colorText"
+                app:menu="@menu/top_app_bar_create_journal"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_bar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/new_journal_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Sun, Nov 15, 2020 2:29 Am"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="15sp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/isPrivate"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_alignEnd="@+id/new_journal_date"
+                android:checked="true"
+                android:text="Private" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/journal_add_mood_chip"
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/new_journal_date"
+                android:layout_marginBottom="15dp"
+                android:checked="true"
+                android:text="What is your mood?"
+                app:chipIcon="@drawable/ic_add_circle_black_24dp"
+                />
+
+            <TextView
+                android:id="@+id/journal_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/journal_add_mood_chip"
+                android:layout_marginBottom="10dp"
+                android:text="Journal Title"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/journal_title_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/journal_title_text"
+                android:layout_marginBottom="30dp"
+                android:elevation="50dp"
+                android:fadingEdgeLength="30dp"
+                app:boxBackgroundColor="@color/colorText"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:placeholderText="Journal Title"
+                tools:targetApi="lollipop">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/journal_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/journal_body_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/journal_title_layout"
+                android:layout_marginBottom="10dp"
+                android:text="Journal Body"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/journal_body_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/journal_body_text"
+                android:elevation="50dp"
+                android:fadingEdgeLength="30dp"
+                app:boxBackgroundColor="@color/colorText"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:placeholderText="write your thoughts here.........."
+                tools:targetApi="lollipop">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/journal_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

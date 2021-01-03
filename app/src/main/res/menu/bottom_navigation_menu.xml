@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="Home"/>
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/journal_page"
         android:enabled="true"
         android:icon="@drawable/ic_journal_book"
         android:title="Journal"/>
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/engage_page"
         android:enabled="true"
         android:icon="@drawable/ic_chat"
         android:title="Engage"/>
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/community_page"
         android:enabled="true"
         android:icon="@drawable/ic_group"
         android:title="Community"/>
